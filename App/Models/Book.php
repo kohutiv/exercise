@@ -14,6 +14,7 @@ class Book
     public $class_id;
     public $year;
     public $title;
+    public $count;
 
 
     public static function findAll(){
