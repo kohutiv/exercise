@@ -19,10 +19,10 @@ class Db
         $this->dbh->exec('SET NAMES "utf8"');
     }
 
-    public function execute($sql)
+    public function execute($sql, $param = [])
     {
         $sth = $this->dbh->prepare($sql);
-        $res = $sth->execute();
+        $res = $sth->execute($param);
         return $res;
     }
 
