@@ -5,10 +5,13 @@ namespace App;
 use \PDO;
 
 class Db
+
 {
+    use Singleton;
+
     protected $dbh;
 
-    public function __construct()
+    protected function __construct()
     {
         $dsn = 'mysql:host=localhost;dbname=12baliv';
         $this->dbh = new PDO($dsn, 'root', '');
