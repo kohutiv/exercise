@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Ihor
- * Date: 05.02.2018
- * Time: 16:18
- */
 
 namespace App;
 
@@ -29,12 +23,12 @@ class Db
         return $res;
     }
 
-    public function query($sql)
+    public function query($sql, $class)
     {
         $sth = $this->dbh->prepare($sql);
         $res = $sth->execute();
         if (false !== $res) {
-            return $sth->fetchAll();
+            return $sth->fetchAll(PDO::FETCH_CLASS, $class);
         }
         return [];
     }

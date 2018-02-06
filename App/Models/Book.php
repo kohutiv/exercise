@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Models;
-use App\Db;
 
 
-class Book
+use App\Model;
+
+class Book extends Model
 {
     public $id;
     public $author;
@@ -14,20 +15,7 @@ class Book
     public $class_id;
     public $year;
     public $title;
-    public $count;
 
-
-    public static function findAll(){
-        $db = new Db();
-
-        return $db->query(
-            'SELECT id, author, alias, url, book_type, class_id, year, title FROM books',
-            'App\Models\Book'
-        );
-    }
-
-
-
-
+    const TABLE = 'books';
 
 }
